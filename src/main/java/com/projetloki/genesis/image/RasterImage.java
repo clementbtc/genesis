@@ -209,8 +209,7 @@ abstract class RasterImage extends Image {
         if (source.toString().equals(out.toURI().toString())) {
           return;
         }
-        ByteStreams.copy(Util.asInputSupplier(source),
-            Util.asOutputSupplier(out));
+        ByteStreams.copy(Util.asInputSupplier(source).openStream(),Util.asOutputSupplier(out).openStream());
       } else {
         Images.doSave(this, out, format);
       }

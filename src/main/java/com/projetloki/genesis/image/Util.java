@@ -14,9 +14,8 @@ import javax.annotation.Nullable;
 
 import com.google.common.hash.HashCode;
 import com.google.common.hash.Hashing;
-import com.google.common.io.ByteStreams;
-import com.google.common.io.InputSupplier;
-import com.google.common.io.OutputSupplier;
+import com.google.common.io.ByteSink;
+import com.google.common.io.ByteSource;
 
 /**
  * Various utility methods.
@@ -39,31 +38,31 @@ final class Util {
   }
 
   static HashCode hash(final URL url) throws IOException {
-    return ByteStreams.hash(asInputSupplier(url), Hashing.murmur3_128());
+    return asInputSupplier(url).hash(Hashing.murmur3_128());
   }
 
-  static InputSupplier<InputStream> asInputSupplier(final File file) {
+  static ByteSource asInputSupplier(final File file) {
     checkNotNull(file);
-    return new InputSupplier<InputStream>() {
-      @Override public InputStream getInput() throws IOException {
+    return new ByteSource() {
+      @Override public InputStream openStream() throws IOException {
         return new FileInputStream(file);
       }
     };
   }
 
-  static InputSupplier<InputStream> asInputSupplier(final URL url) {
+  static ByteSource asInputSupplier(final URL url) {
     checkNotNull(url);
-    return new InputSupplier<InputStream>() {
-      @Override public InputStream getInput() throws IOException {
+    return new ByteSource() {
+      @Override public InputStream openStream() throws IOException {
         return url.openStream();
       }
     };
   }
 
-  static OutputSupplier<OutputStream> asOutputSupplier(final File file) {
+  static ByteSink asOutputSupplier(final File file) {
     checkNotNull(file);
-    return new OutputSupplier<OutputStream>() {
-      @Override public OutputStream getOutput() throws IOException {
+    return new  ByteSink() {
+      @Override public OutputStream openStream() throws IOException {
         return new FileOutputStream(file);
       }
     };

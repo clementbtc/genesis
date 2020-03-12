@@ -182,7 +182,7 @@ public final class TextShape extends RasterOnShrinkShape<TextShape> {
 
   @Override void doHash(PrimitiveSink sink) {
     sink.putLong(-4619176327031370938L)
-        .putString(text)
+        .putUnencodedChars(text)
         .putBytes(font.hash().asBytes())
         .putInt(fontSize);
   }

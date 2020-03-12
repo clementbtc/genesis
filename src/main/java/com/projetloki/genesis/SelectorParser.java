@@ -2,6 +2,7 @@ package com.projetloki.genesis;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
+import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 /**
@@ -18,18 +19,18 @@ final class SelectorParser extends Parser<Selector> {
         simpleSelector = Selector.ANY;
       } else if (input.startsWithThenMove("#")) {
         String id = input.readId();
-        simpleSelector = Objects.firstNonNull(simpleSelector, Selector.ANY)
+        simpleSelector = MoreObjects.firstNonNull(simpleSelector, Selector.ANY)
             .onId(id);
       } else if (input.startsWithThenMove(".")) {
         String className = input.readId();
-        simpleSelector = Objects.firstNonNull(simpleSelector, Selector.ANY)
+        simpleSelector = MoreObjects.firstNonNull(simpleSelector, Selector.ANY)
             .onClass(className);
       } else if (input.startsWithThenMove("[")) {
         AttributePredicate pred = AttributePredicate.PARSER.parse(input);
-        simpleSelector = Objects.firstNonNull(simpleSelector, Selector.ANY)
+        simpleSelector = MoreObjects.firstNonNull(simpleSelector, Selector.ANY)
             .on(pred);
       } else if (input.startsWithThenMove(":")) {
-        simpleSelector = Objects.firstNonNull(simpleSelector, Selector.ANY);
+        simpleSelector = MoreObjects.firstNonNull(simpleSelector, Selector.ANY);
         boolean doubleColon = input.startsWithThenMove(":");
         int oldPosition = input.position();
         String id = input.readId().toLowerCase();

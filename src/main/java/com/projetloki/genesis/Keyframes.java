@@ -57,7 +57,7 @@ public final class Keyframes extends AppendableToNoContext {
     Hasher hasher = Hashing.sha1().newHasher();
     for (Keyframe keyframe : keyframes) {
       hasher.putDouble(keyframe.percentage);
-      hasher.putString(keyframe.properties);
+      hasher.putUnencodedChars(keyframe.properties);
     }
     byte[] bytes = hasher.hash().asBytes();
     int len = Math.min(bytes.length, 8);
