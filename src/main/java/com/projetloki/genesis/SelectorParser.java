@@ -3,7 +3,6 @@ package com.projetloki.genesis;
 import static com.google.common.base.Preconditions.checkArgument;
 
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
 
 /**
  * Parser for CSS selectors.
