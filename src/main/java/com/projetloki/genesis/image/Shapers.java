@@ -5,7 +5,6 @@ import static com.google.common.base.Preconditions.checkArgument;
 import java.io.Serializable;
 
 import com.google.common.hash.HashCode;
-import com.google.common.hash.HashCodes;
 import com.google.common.hash.PrimitiveSink;
 
 /**
@@ -756,7 +755,7 @@ public final class Shapers {
     }
 
     @Override public HashCode hash() {
-      return HashCodes.fromLong(6022702161637027635L);
+      return HashCode.fromLong(6022702161637027635L);
     }
 
     private Object readResolve() {

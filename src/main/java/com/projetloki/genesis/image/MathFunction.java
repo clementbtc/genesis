@@ -102,7 +102,7 @@ public abstract class MathFunction implements Hashable {
   // Implementations
   // ---------------------------------------------------------------------------
 
-  private static class FlipXMathFunction extends MathFunction
+  static class FlipXMathFunction extends MathFunction
       implements Serializable {
     final MathFunction operand;
 

@@ -11,7 +11,6 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.common.hash.HashCode;
-import com.google.common.hash.HashCodes;
 import com.google.common.hash.Hasher;
 import com.google.common.hash.Hashing;
 import com.google.common.primitives.Doubles;
@@ -166,7 +165,7 @@ public final class MathFunctions {
     }
 
     @Override public HashCode hash() {
-      return HashCodes.fromLong(-5838687867276611996L);
+      return HashCode.fromLong(-5838687867276611996L);
     }
 
     @Override public String toString() {
@@ -193,7 +192,7 @@ public final class MathFunctions {
     }
 
     @Override public HashCode hash() {
-      return HashCodes.fromLong(-1565035307198871281L);
+      return HashCode.fromLong(-1565035307198871281L);
     }
 
     @Override public boolean equals(Object object) {
@@ -223,7 +222,7 @@ public final class MathFunctions {
     }
 
     @Override public HashCode hash() {
-      return HashCodes.fromLong(6258949628338275487L);
+      return HashCode.fromLong(6258949628338275487L);
     }
 
     @Override public boolean equals(Object object) {

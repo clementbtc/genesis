@@ -233,11 +233,11 @@ public final class FontFace extends AppendableToNoContext {
       if (result == null) {
         // Compute a hash of this object
         Hasher hasher = Hashing.sha1().newHasher()
-            .putString(Strings.nullToEmpty(style))
-            .putString(Strings.nullToEmpty(variant))
-            .putString(Strings.nullToEmpty(weight));
+            .putUnencodedChars(Strings.nullToEmpty(style))
+            .putUnencodedChars(Strings.nullToEmpty(variant))
+            .putUnencodedChars(Strings.nullToEmpty(weight));
         for (String source : sources) {
-          hasher.putString(source);
+          hasher.putUnencodedChars(source);
         }
         byte[] bytes = hasher.hash().asBytes();
         int len = Math.min(bytes.length, 8);

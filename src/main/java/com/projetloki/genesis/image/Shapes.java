@@ -5,7 +5,6 @@ import java.io.Serializable;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.hash.HashCode;
-import com.google.common.hash.HashCodes;
 import com.google.common.hash.PrimitiveSink;
 
 /**
@@ -353,7 +352,7 @@ public final class Shapes {
     }
 
     @Override public HashCode hash() {
-      return HashCodes.fromLong(-3971682349212737902L);
+      return HashCode.fromLong(-3971682349212737902L);
     }
 
     @Override public String toString() {
@@ -380,7 +379,7 @@ public final class Shapes {
     }
 
     @Override public HashCode hash() {
-      return HashCodes.fromLong(5140383400602744647L);
+      return HashCode.fromLong(5140383400602744647L);
     }
 
     @Override public String toString() {
